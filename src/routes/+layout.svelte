@@ -10,8 +10,6 @@
 	<nav class="navbar">
 		<a href="/">Movies</a>
 		<a href="/tvshows">TV Shows</a>
-
-		<!-- <a href="/movie">Favorite Movie</a> -->
 	</nav>
 </header>
 

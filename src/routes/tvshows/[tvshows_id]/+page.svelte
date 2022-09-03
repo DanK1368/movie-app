@@ -1,21 +1,30 @@
-<div class="movie-details">
+<script>
+	import { fly } from 'svelte/transition';
+	export let data;
+</script>
+
+<div class="show-details" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
 	<div class="img-container">
-		<img src={`https://image.tmdb.org/t/p/original`} alt="" />
+		<img src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`} alt="" />
 	</div>
 	<div class="text-container">
-		<!-- <h1>{data.title}</h1>
+		<h1>{data.name}</h1>
+		<h2>{data.tagline}</h2>
 		<p class="overview">{data.overview}</p>
 		<p>
+			<span>Created by:</span>
+			{#each data.created_by as creator}
+				{creator.name}
+			{/each} <br />
 			<span>Release Date:</span>
 			{data.release_date} <br />
-			<span>Budget:</span>${data.budget} <br />
+			<span>Number of Episodes</span>${data.number_of_episodes} <br />
+			<span>Number of Seasons</span>${data.number_of_seasons} <br />
 			<span>Rating:</span>
 			{data.vote_average} <br />
-			<span>Runtime: </span>
-			{data.runtime} mins
-		</p> -->
+		</p>
 	</div>
-	<a class="link" href="/">Movie Overview</a>
+	<a class="link" href="/tvshows">TV Shows Overview</a>
 </div>
 
 <style>
@@ -36,7 +45,7 @@
 		border-radius: 1rem;
 	}
 
-	.movie-details {
+	.show-details {
 		margin: 2rem 20%;
 	}
 
